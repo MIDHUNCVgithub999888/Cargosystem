@@ -1,0 +1,174 @@
+{% extends "CargoApp/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+</head>
+<body>
+	{% block content %}
+	<div>
+
+		<div style="background-color:#e12503; ">
+			<!-- <center> -->
+            <table>
+
+			<tr >
+
+				<td>
+
+					 
+
+				<li>
+					<a style="color: white;" href="{% url 'CargoApp:Home' user.id %}">Home</a>
+					<a  style="color: white; margin-left: 1200px;" href="{% url 'CargoApp:Booking' user.id %}">Booking</a>
+					
+
+				<td>
+			<li >	<div class="container">
+		
+		<div class="dropdown">
+			<button style="background-color: #e12503; color: white; font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;" class="btn dropdown-toggle" type="button" data-toggle="dropdown">{{user.Firstname}}
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu" style="background-color:#e12503; width: 200px; color: white; font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif ;">
+					<li><i class="fa fa-user"></i><a style="color: #fff;" href="{% url 'CargoApp:UserProfile' user.id %}">&nbsp;&nbsp;Profile</a></li>
+					<hr>
+					<li><i class="fa fa-file-text"></i><a style="color:#fff" href="#">&nbsp;&nbsp;Orders</a></li>
+					<hr>
+					<li><i class="fa fa-bell"></i><a style="color:#fff" href="#">&nbsp;&nbsp;Notifications</a></li>
+					<hr>
+					<li><i class="fa fa-lock"></i><a style="color:#fff"  href="{% url 'CargoApp:ChangePassword' user.id %}">&nbsp;&nbsp;ChangePassword</a></li>
+					<hr>
+					<li><i class="fa fa-sign-out" aria-hidden="true"></i><a style="color:#fff" href="{% url 'CargoApp:UserLogout' user.id %}">&nbsp;&nbsp;LogOut</a></li>
+					<hr>
+			</td>
+					
+				</ul>						
+			
+		</div>
+
+
+	</div>
+	<td>
+	<img src="{{user.Photo.url}}" style="height: 40px; border-radius: 20px;">
+                
+        </td>    
+										
+			
+		</div>
+
+
+			</td>
+
+			
+
+			
+			</tr>
+              </table>
+			
+</div>
+	<div class="container-fluid" style="margin-top: 10px;">
+		<div class="card"  style="background-color:#fff; height: 730px;">
+			<div> 
+				
+					
+				
+
+		
+		<form  action="{% url 'CargoApp:UserProfile' user.id  %}" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+              <center>
+              	<div class="card-header" style="background-color:#85060c;"><h4 style="color:#fff; font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif ;">PersonalInformation</h4></div>
+              	
+
+              				<div class="row" style="margin-top: 40px;">
+
+              	      <div class="col-md-4">
+              			<img src="{{user.Photo.url}}" style="height: 170px; ">
+
+
+              		</div>
+
+              					
+              					<div class="col-md-4" style="font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;">
+              						<div>Name:</div>
+              						<br/>
+              						<hr>
+              						<div>DateOfBirth:</div>
+              						<br/>
+              						<hr>
+              						<div>ContactNumber:</div>
+              						<br/>
+              						<hr>
+              						<div>Email:</div>
+              						<br/>
+              						<hr>
+              						<div>Address:</div>
+              						<hr>
+              						
+              						
+
+              						
+              					</div>
+
+
+              					<div class="col-md-4" style="font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;">
+              						<div>{{user.Firstname}}</div>
+              						<br/>
+              						<hr>
+              						<div>{{user.DateOfBirth}}</div>
+              						<br/>
+              						<hr>
+              						<div>{{user.ContactNumber}}</div>
+              						<br/>
+              						<hr>
+              						<div>{{user.Email}}</div>
+              						<br/>
+              						<hr>
+              						<div>{{user.Address}}</div>
+              						<hr>
+
+	
+              					</div>
+
+
+              				</div>
+              				<a style="width:90px;"  class="btn btn-primary" href="{% url 'CargoApp:Edit' user.id %}">Edit</a>
+
+              				</div>
+
+
+              				<a  href="{% url 'CargoApp:Home' user.id %}">
+						<img style="height: 60px;" src="{% static 'assets/images/bw3.png' %}">
+					</a>
+
+
+
+		
+
+              	</div>
+             
+
+              	{% if user %}
+  
+
+              	{% endif %}
+
+              
+             
+			</center>
+
+
+		</form>
+
+		</div>
+
+
+		</div>
+			
+	</div>
+	{% endblock %}
+
+</body>
+</html>

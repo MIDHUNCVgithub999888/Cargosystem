@@ -1,0 +1,74 @@
+{% extends 'AdminApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+{% block content %}
+<body>
+	<div>
+		<form action="{% url 'AdminApp:ManageBranch' %}" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+
+			
+			<h3>BranchList</h3>
+
+			<table class="table table-striped table-hover">
+				<thead style="background-color: black;color:white;">
+				
+				<tr style="font-family:Arial Black;">
+				<th>BranchCode</th>
+				<th>BranchName</th>
+				<th>Street/Bulding/Address</th>
+				<th>City/State/Pincode</th>
+				<th>Country</th>
+				<th>EmailId</th>
+				<th>ContactNumber</th>
+				<th>Action</th>
+
+				</tr>
+				</thead>
+
+                
+				{% for i in user %}
+
+				<tbody>
+					<tr>
+						<td>{{i.id}}</td>
+						<td>{{i.BranchName}}</td>
+						<td>{{i.BranchAddress}}</td>
+						<td>{{i.BranchCity}},{{i.BranchState}},{{i.BranchPincode}}</td>
+						<td>{{i.BranchCountry}}</td>
+						<td>{{i.BranchEmail}}</td>
+						<td>{{i.BranchContactnumber}}</td>
+						<td>
+							
+							<a href="{% url 'AdminApp:AdminDelete' i.id %}">
+								<img src="{% static 'assets/images/del.jpg' %}" style="width:30px;">
+							</a>
+							
+
+						</td>
+					</tr>
+				</tbody>
+
+
+				{% endfor %}
+
+			</table>
+
+			
+			
+
+
+		</form>
+			
+		
+
+	</div>
+
+</body>
+{% endblock %}
+</html>

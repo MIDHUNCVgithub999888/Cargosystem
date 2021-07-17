@@ -1,0 +1,221 @@
+{% extends 'CargoApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	{% block content %}
+
+    <div style="background-color:#e12503; ">
+            <!-- <center> -->
+            <table>
+
+            <tr >
+
+                <td>
+
+                     
+
+                <li>
+                    
+                    <a  style="color: white; margin-left: 1200px;" href="{% url 'CargoApp:Booking' user.id %}"></a>
+                    
+            </td>
+
+                <td>
+            <li>   <div class="container-fluid">
+        
+        <div class="dropdown">
+            <button style="background-color: #e12503; color: white;" class="btn dropdown-toggle" type="button" data-toggle="dropdown">{{user.Firstname}}
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu" style="background-color:#e12503; width: 200px; color:#fff;">
+                    <li><i class="fa fa-user-circle-o"></i> <a style="color:#fff;" href="{% url 'CargoApp:UserProfile' uid %}">&nbsp;&nbsp;&nbsp;MyProfile</a></li>
+                    <hr>
+                    <li><i class="fa fa-file-text"></i><a style="color:#fff;"   href="{% url 'CargoApp:UserOrder' uid %}">&nbsp;&nbsp;&nbsp;Orders</a></li>
+                    <hr>
+                    <li><i class="fa fa-bell"></i><a style="color:#fff;" href="#">&nbsp;&nbsp;&nbsp;Notifications</a></li>
+                    <hr>
+                    
+                    <li> <i class="fa fa-lock"></i><a style="color:#fff;"  href="{% url 'CargoApp:ChangePassword' user.id %}">&nbsp;&nbsp;&nbsp;ChangePassword</a></li>
+                    <hr>
+                    <li><i class="fa fa-sign-out" aria-hidden="true"></i><a style="color:#fff;" href="{% url 'CargoApp:UserLogout' user.id %}">&nbsp;&nbsp;&nbsp;LogOut</a></li>
+                    <hr>
+
+                    
+                </ul>                       
+            
+        </div>
+
+
+    </div>
+    <td>
+    <img src="{{user.Photo.url}}" style="height: 40px; border-radius: 20px; margin-left: 20px;">
+                
+        </td>    
+                                        
+            
+        </div>
+
+
+            </td>
+
+            
+
+            
+            </tr>
+              </table>
+          </li>
+            
+</div>
+
+<br/>
+
+
+
+	
+
+
+		
+			
+
+				
+				
+
+	<div style="background-color: #ffffff; margin-left: 20px; margin-right: 10px; margin-bottom: 10px; " >
+                         
+                      
+
+					
+  <form action="{% url 'CargoApp:FinalPayment' user.id %}" method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    <br/>
+    <center >
+
+        <div class="card"  style="width:800px; height: 400px;">
+            <div style="background-color:#85060c; color:#fff; font-family: 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;"  class="card-header">Credit Card Payment</div>
+
+            <div class="card-body" >
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label style="margin-right:600px;font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif; ">Card Owner</label>
+                        
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div style="width:780px;margin-right: 600px;" >{{data.CardholdersName}}</div>
+                            
+                            
+                        </div>
+                        
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label style="margin-right:600px;font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif">Card number</label>
+                            
+                        </div>
+
+                        <div class="col-md-12">{{data.CardNumber}}</div>
+                        
+                        
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label style="font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif">Expiration Date</label>
+                            <label style="margin-left:600px;font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif">CVV</label>
+                            
+                        </div>
+                        
+
+                    </div>
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <div>{{data.ExpiryMonth}}</div>
+                            
+                        </div>
+
+                        <div class="col-md-4">
+                            <div>{{data.ExpiryYear}}</div>
+                            
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div>{{data.CVV}}</div>
+                            
+                        </div>
+
+                        
+                        
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label style="margin-right:600px;"></label>
+                            
+                        </div>
+
+                       <!--  <div style="font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;" class="col-md-12"><input style="width:500px;" class="btn btn-primary" type="submit" name="submit" value="Pay ₹ {{user.NetRate}}"></div> -->
+                        
+                       <input style="margin-left:150px; width: 500px;" class="btn btn-primary" type="submit" name="Amount" placeholder="0.00" value="{{user.NetRate }}">
+                       
+                       
+                        
+                        
+
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+
+        </div>
+        
+    </center>
+            
+    </form>
+
+
+
+
+
+
+				<a  href="{% url 'CargoApp:OnlinePayment' user.id %}">
+                        <img style="height: 60px;" src="{% static 'assets/images/bw3.png' %}">
+                    </a>	
+
+		<!-- <form action="{% url 'CargoApp:FinalPayment' user.id  %}" method="POST" enctype="multipart/form-data" >
+
+		
+			
+
+
+         
+
+		</form> -->
+		
+
+
+
+
+
+	
+	{% endblock %}
+
+</body>
+</html>

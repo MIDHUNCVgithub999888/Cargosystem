@@ -1,0 +1,131 @@
+{% extends "CargoApp/base.html" %}
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title></title>
+
+	
+</head>
+
+{% block content %}
+<body>
+	<div>
+
+		<div style="background-color:#e12503; ">
+			<!-- <center> -->
+            <table>
+
+            	
+            			 
+            		
+			<tr>
+
+				<td>
+
+
+					
+
+				<li>
+					
+	<a  style="color: white; margin-left: 1200px; font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;" href="{% url 'CargoApp:Booking' user.id %} ">Booking</a>
+
+
+					
+
+
+				</li>
+
+
+			</td>
+
+				<td>
+
+			<li><div class="container">
+		
+		<div class="dropdown" >
+			<button style="background-color:#e12503; font-family: 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif; color: white;" class="btn dropdown-toggle" type="button" data-toggle="dropdown">{{user.Firstname}}
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu"  style="background-color:#e12503; width: 200px; color:#ffffff; font-family: 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;">
+					<li><i class="fa fa-user"></i><a style="color:#ffffff;"  href="{% url 'CargoApp:UserProfile' user.id %}">&nbsp;&nbsp;&nbsp;MyProfile</a></li>
+					<hr>
+					<li><i class="fa fa-file-text"></i><a  style="color:#ffffff;" href="{% url 'CargoApp:UserOrder' user.id %}">&nbsp;&nbsp;&nbsp;Orders</a></li>
+					<hr>
+					<li><i class="fa fa-bell"></i><a  style="color:#ffffff;" href="{% url 'CargoApp:UserNotifications' user.id %}">&nbsp;&nbsp;&nbsp;Notifications</a></li>
+					<hr>
+					<li><i class="fa fa-lock"></i><a  style="color:#ffffff;" href="{% url 'CargoApp:ChangePassword' user.id %}">&nbsp;&nbsp;&nbsp;ChangePassword</a></li>
+					
+					<hr>
+					<li><i class="fa fa-sign-out" aria-hidden="true"></i><a  style="color:#ffffff;" href="{% url 'CargoApp:UserLogout' user.id %}">&nbsp;&nbsp;&nbsp;LogOut</a></li>
+					<hr>
+					
+					
+				</ul>						
+			
+		</div>
+
+
+	</div>
+	<td>
+	<img src="{{user.Photo.url}}" style="height: 40px; border-radius: 20px; margin-left: 30px;">
+                
+        </td>    
+										
+			
+		</div>
+
+
+			</td>
+
+			
+
+			
+			</tr>
+              </table>
+			
+</div>
+        
+        <div>
+        	<div>
+
+
+        		<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img style="height: 680px; " src="{%  static '/assets/images/c1.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img style="height: 680px;" src="{%  static '/assets/images/c9.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img style="height: 680px;" src="{%  static '/assets/images/c4.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img style="height: 680px;" src="{%  static '/assets/images/c10.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+
+  </div>
+</div>
+        		
+
+        	</div>
+		<form action="{% url 'CargoApp:Home' user.id %}" method="post" enctype="mutlipart/form-data">
+			{% csrf_token %}
+			{% if user %}
+
+			
+
+
+
+			
+
+          {% endif %}
+		</form>
+		
+
+      </div>
+	</div>
+
+</body>
+{% endblock %}
+</html>

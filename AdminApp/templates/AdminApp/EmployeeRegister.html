@@ -1,0 +1,74 @@
+{% extends 'AdminApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+
+
+<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'rel='stylesheet'>
+      
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+
+  
+</head>
+{% block content %}
+<h4>Employee Master</h4>
+<body>
+
+	<form action="{% url 'AdminApp:AddEmployee' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+
+      
+          <center>
+      <table >
+      	
+
+      	<tr>
+      		
+
+      		<td>
+      			
+
+
+      			
+                {{ data.as_table }}
+
+               
+
+      		</td>
+      	</tr>
+
+      	<tr>
+      		<td >
+      			<button class="btn btn-success">Submit</button>
+      		</td>
+      	</tr>
+ 
+
+
+
+
+
+
+
+  
+      </table>
+
+
+      </center>
+
+
+      
+
+	</form>
+
+</body>
+
+{% endblock %}
+</html>

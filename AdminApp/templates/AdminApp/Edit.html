@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<div>
+		
+        <form action="{% url 'AdminApp:EditProfileForm' user.id %}" method="POST" enctype="mutlipart/form-data">
+        	{% csrf_token %}
+
+        	{{ form.as_p }}
+        	
+
+
+        </form>
+        	
+
+	</div>
+
+</body>
+</html>

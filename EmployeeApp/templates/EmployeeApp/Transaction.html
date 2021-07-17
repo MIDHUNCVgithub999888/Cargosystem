@@ -1,0 +1,80 @@
+{% extends 'EmployeeApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% block content %}
+
+	<div>
+
+		<form action="{% url 'EmployeeApp:ViewTransaction' user.id %}"  method="POST" enctype="mutlipart/form-data">
+
+			{% csrf_token %}
+
+
+			<table border="2" style="border-style: double;">
+				<thead>
+
+					<tr>
+
+				<th>BillNumber</th>
+				<th>CustomerName</th>
+				<th>MobileNumber</th>
+				<th>EmailID</th>
+				<th>Address</th>
+				<th>District</th>
+				<th>Destination</th>
+				<th>DeliveryAcceptDate</th>
+				<th>Weight</th>
+				<th>PackageType</th>
+				<th>Amount</th>
+				<th>Status</th>
+				</tr>
+
+               </thead>
+
+               {% for i in user %}
+
+
+               <tbody>
+               	<tr>
+               		
+
+               		<td>{{i.BillNumber}}</td>
+               		<td>{{i.CustomerName}}</td>
+               		<td>{{i.MobileNumber}}</td>
+               		<td>{{i.EmailID}}</td>
+               		<td>{{i.Address}}</td>
+               		<td>{{i.District}}</td>
+               		<td>{{i.Destination}}</td>
+               		<td>{{i.DeliveryAcceptDate}}</td>
+               		<td>{{i.Weight}}</td>
+               		<td>{{i.PackageType}}</td>
+               		<td>{{i.Amount}}</td>
+               		<td>{{i.Status}}</td>
+               	</tr>
+               	
+
+
+               </tbody>
+               {% endfor %}
+
+			
+			
+
+            </table>
+
+		</form>
+		
+
+
+
+	</div>
+
+	{% endblock %}
+
+</body>
+</html>

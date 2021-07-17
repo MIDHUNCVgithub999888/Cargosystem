@@ -1,0 +1,524 @@
+{% extends 'CargoApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	
+</head>
+
+
+<body>
+	{% block content %}
+
+	<div>
+		
+		<div style="background-color:#e12503; ">
+			<!-- <center> -->
+            <table>
+
+            	
+            			 
+            		
+			<tr>
+
+				<td>
+
+
+					
+
+				<li>
+					
+	<a  style="color: white; margin-left: 1200px; font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;" href="{% url 'CargoApp:Booking' user.id %} ">Booking</a>
+
+
+					
+
+
+				</li>
+
+
+			</td>
+
+				<td>
+
+			<li><div class="container">
+		
+		<div class="dropdown" >
+			<button style="background-color:#e12503; font-family: 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif; color: white;" class="btn dropdown-toggle" type="button" data-toggle="dropdown">{{user.Firstname}}
+				<span class="caret"></span></button>
+				<ul class="dropdown-menu"  style="background-color:#e12503; width: 200px; color:#ffffff; font-family: 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;">
+					<li><i class="fa fa-user-circle-o"></i><a style="color:#ffffff;"  href="{% url 'CargoApp:UserProfile' user.id %}">&nbsp;&nbsp;&nbsp;MyProfile</a></li>
+					<hr>
+					<li><i class="fa fa-file-text"></i><a  style="color:#ffffff;" href="{% url 'CargoApp:UserOrder' uid %}">&nbsp;&nbsp;&nbsp;Orders</a></li>
+					<hr>
+					<li><i class="fa fa-bell"></i><a  style="color:#ffffff;" href="#">&nbsp;&nbsp;&nbsp;Notifications</a></li>
+					<hr>
+					<li><i class="fa fa-lock"></i><a  style="color:#ffffff;" href="{% url 'CargoApp:ChangePassword' uid %}">&nbsp;&nbsp;&nbsp;ChangePassword</a></li>
+					<hr>
+					<li><a  style="color:#ffffff;" href="{% url 'CargoApp:OnlinePayment'  user.id %}">&nbsp;&nbsp;&nbsp;Payment</a></li>
+					<hr>
+					<li><i class="fa fa-sign-out" aria-hidden="true"></i><a  style="color:#ffffff;" href="{% url 'CargoApp:UserLogout' user.id %}">&nbsp;&nbsp;&nbsp;LogOut</a></li>
+					<hr>
+					
+					
+				</ul>						
+			
+		</div>
+
+
+	</div>
+	<td>
+	<img src="{{user.Photo.url}}" style="height: 40px; border-radius: 20px; margin-left: 30px;">
+                
+        </td>    
+										
+			
+		</div>
+
+
+			</td>
+
+			
+
+			
+			</tr>
+              </table>
+			
+</div>
+        
+        <div>
+        	
+
+
+	</div>
+	<div>
+	<form action="{% url 'CargoApp:FinalPayment' user.id %}" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+
+
+	   
+
+         {% if user  %}
+		
+		<div class="card">
+			<div class="card-header" style="background-color: #8f5729; "><h3 style="color: #ffffff;font-family: TimesNewRoman">SenderDetails</h3></div>
+
+		<div class="row" > 
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">SenderName:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{ user.Shippername }}</h5>
+				
+
+			</div>
+			
+		</div>
+		
+		<hr>
+
+		<div class="row"> 
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">Origin:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{ user.Origin }}</h5>
+				
+
+			</div>
+			
+		</div>
+		
+		<hr>
+		<div class="row"> 
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">SenderEmail:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{ user.Email }}</h5>
+				
+
+			</div>
+			
+		</div>
+		
+		<hr>
+		<div class="row"> 
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">SenderPhone:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{ user.ContactNumber }}</h5>
+				
+
+			</div>
+			
+		</div>
+		
+		<hr>
+		<div class="row"> 
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">SenderAddress:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{ user.ShipperAddress }}</h5>
+				
+
+			</div>
+			
+		</div>
+		
+		<hr>
+		<div class="row"> 
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">Destination:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{ user.Destination }}</h5>
+				
+
+			</div>
+			
+		</div>
+		
+		<hr>
+		<div class="row"> 
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">Excepting DeliveryDate:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{ user.DeliveryDate }}</h5>
+				
+
+			</div>
+			
+		</div>
+		
+		<hr>
+
+		<div class="card-header" style="background-color:#8f5729;"><h3 style=" font-family:TimesNewRoman; color: #ffffff;">ReciverAddress</h3></div>
+
+		<div class="row">
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">Recivername:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{user.Recivername}}</h5>
+				
+
+			</div>
+			
+
+
+		</div>
+		<hr>
+
+		<div class="row">
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">ReciverEmail</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{user.ReciverEmail}}</h5>
+				
+
+			</div>
+			
+
+
+		</div>
+		<hr>
+
+		<div class="row">
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">ReciverContact:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{user.ReciverContact}}</h5>
+				
+
+			</div>
+			
+
+
+		</div>
+		<hr>
+
+		<div class="row">
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">ReciverAddresss:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{user.ReciverAddresss}}</h5>
+				
+
+			</div>
+			
+
+
+		</div>
+		<hr>
+
+
+		<div class="row">
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">ReciverPin:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{user.ReciverPin}}</h5>
+				
+
+			</div>
+			
+
+
+		</div>
+		<hr>
+
+		<div class="row">
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">ReciverDistrict:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{user.ReciverDistrict}}</h5>
+				
+
+			</div>
+			
+
+
+		</div>
+		<hr>
+
+		<div class="row">
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">ReciverState:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{user.ReciverState}}</h5>
+				
+
+			</div>
+			
+
+
+		</div>
+		<hr>
+
+
+		<div class="row">
+			<div class="col-md-3">
+
+				<h5 style="font-family:Lucida Bright">ReciverCountry:</h5>
+				
+
+			</div>
+			<div class="col-md-3">
+
+				<h5>{{user.ReciverCountry}}</h5>
+				
+
+			</div>
+			
+
+
+		</div>
+		<hr>
+
+
+		<div class="card-header" style="background-color:#8f5729; "><h3 style="font-family: TimesNewRoman;color: #ffffff;">CargoDetails</h3></div>
+
+			<div class="row">
+				<div class="col-md-3">
+
+
+					<h5 style="font-family:Lucida Bright">CargoWeigth</h5>
+					
+
+				</div>
+				<div class="col-md-3">
+
+					<h5>{{user.CargoWeigth}}</h5>
+					
+
+				</div>
+				
+
+			</div>
+			<hr>
+
+
+
+			<div class="row">
+				<div class="col-md-3">
+
+
+					<h5 style="font-family:Lucida Bright">CargoQuantity</h5>
+					
+
+				</div>
+				<div class="col-md-3">
+
+					<h5>{{user.CargoQuantity}}</h5>
+					
+
+				</div>
+				
+
+			</div>
+
+			<hr>
+
+
+			<div class="row">
+				<div class="col-md-3">
+
+
+					<h5 style="font-family:Lucida Bright">ShipmentType</h5>
+					
+
+				</div>
+				<div class="col-md-3">
+
+					<h5>{{user.ShipmentType}}</h5>
+					
+
+				</div>
+				
+
+			</div>
+		
+			<hr>
+
+			<div class="row">
+				<div class="col-md-3">
+
+
+					<h5 style="font-family:Lucida Bright">Type</h5>
+					
+
+				</div>
+				<div class="col-md-3">
+
+					<h5>{{user.Type}}</h5>
+					
+
+				</div>
+				
+
+			</div>
+			<hr>
+
+
+			<div class="row">
+				<div class="col-md-3">
+
+
+					<h5 style="font-family:Lucida Bright">NetRate</h5>
+					
+
+				</div>
+				<div class="col-md-3">
+
+					<h5>{{user.NetRate}}</h5>
+					
+
+				</div>
+				
+
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-12">
+
+ 
+                <center>
+              <a class="btn btn-primary" href="{% url 'CargoApp:FinalPayment' user.id %}">MakePayment</a>
+
+              </center>
+					
+
+
+				</div>
+				<div class="col-md-12">
+
+					<a  href="{% url 'CargoApp:Booking' uid %}">
+                        <img style="height: 60px;" src="{% static 'assets/images/bw3.png' %}">
+                    </a>
+					
+
+				</div>
+				
+
+
+			</div>
+
+		
+			
+		{% endif %}
+
+		
+		
+
+		</div>
+		
+	</form>
+	</div>
+	{% endblock %}
+</body>
+</html>

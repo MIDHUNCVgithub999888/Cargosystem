@@ -1,0 +1,99 @@
+{% extends 'AdminApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+{% block content %}
+<body>
+	<div>
+
+		<h3>BRANCH DETAILS</h3>
+
+		<form action="{% url 'AdminApp:AdminBranches' %}" method="POST"  enctype="multipart/form-data">
+			{% csrf_token %}
+
+			 {% for msg in messages %}
+
+
+
+           <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Hey!</strong>{{ msg }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+        
+
+
+        {% endfor %}
+
+			<table>
+				<tr>
+					<td>BranchName:</td>
+					<td style="width:800px;">{{data.BranchName}}</td>
+				</tr>
+				<tr>
+					<td>BranchContactnumber:</td>
+					<td>{{data.BranchContactnumber}}</td>
+				</tr>
+
+				<tr>
+					<td>BranchEmail</td>
+					<td>{{data.BranchEmail}}</td>
+				</tr>
+				<tr>
+					<td>BranchAddress</td>
+					<td>{{data.BranchAddress}}</td>
+				</tr>
+
+				<tr>
+					<td>BranchCountry</td>
+					<td>{{data.BranchCountry}}</td>
+				</tr>
+
+				<tr>
+					<td>BranchState</td>
+					<td>{{data.BranchState}}</td>
+				</tr>
+				<tr>
+					<td>BranchCity</td>
+					<td>{{data.BranchCity}}</td>
+				</tr>
+				<tr>
+					<td>BranchPincode</td>
+					<td>{{data.BranchPincode}}</td>
+				</tr>
+				<tr>
+					<td>
+						
+							<input class="btn btn-success" type="submit" name="" value="Add">
+						
+					</td>
+				</tr>
+			</table>
+
+			
+			
+          
+
+			<!-- {{ data.as_table }} -->
+
+
+
+			
+
+			
+
+
+
+		</form>
+		
+
+	</div>
+
+</body>
+{% endblock %}
+</html>

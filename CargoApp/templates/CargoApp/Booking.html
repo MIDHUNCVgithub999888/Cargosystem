@@ -1,0 +1,403 @@
+{% extends "CargoApp/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+  
+</head>
+
+<body>
+     {% block content %}
+   <div>
+
+        <div style="background-color:#e12503; ">
+            <!-- <center> -->
+            <table>
+
+            <tr >
+
+                <td>
+
+                     
+
+                <li>
+                    
+        <a  style="color: white; margin-left: 1200px; font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;" href="{% url 'CargoApp:Booking' user.id %}">Booking</a>
+                    
+            </td>
+
+                <td>
+            <li>   <div class="container-fluid">
+        
+        <div class="dropdown">
+            <button style="background-color:#e12503; font-family: 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif; color: white;" class="btn dropdown-toggle" type="button" data-toggle="dropdown">{{user.Firstname}}
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu" style="background-color:#e12503;color: #fff; width: 200px;">
+                    <li ><i class="fa fa-user"></i><a style="color: #fff;" href="{% url 'CargoApp:UserProfile' user.id %}">&nbsp;&nbsp;&nbsp;Profile</a></li>
+                    <hr>
+                    <li><i class="fa fa-file-text"></i><a style="color: #fff;" href="{% url 'CargoApp:UserOrder' user.id %}">&nbsp;&nbsp;&nbsp;Orders</a></li>
+                    <hr>
+                    <li><i class="fa fa-bell"></i><a style="color: #fff;" href="#">&nbsp;&nbsp;&nbsp;Notifications</a></li>
+                    <hr>
+                    
+                    <li> <i class="fa fa-lock"></i><a style="color: #fff;"  href="{% url 'CargoApp:ChangePassword' user.id %}">&nbsp;&nbsp;&nbsp;ChangePassword</a></li>
+                    <hr>
+                    <li><i class="fa fa-sign-out" aria-hidden="true"></i><a style="color: #fff;" href="{% url 'CargoApp:UserLogout' user.id %}">&nbsp;&nbsp;&nbsp;LogOut</a></li>
+                    <hr>
+                    
+                </ul>                       
+            
+        </div>
+
+
+    </div>
+    <td>
+    <img src="{{user.Photo.url}}" style="height: 40px; border-radius: 20px; margin-left: 20px;">
+                
+        </td>    
+                                        
+            
+        </div>
+
+
+            </td>
+
+            
+
+            
+            </tr>
+              </table>
+            
+</div>
+     
+
+     <form action="{% url 'CargoApp:Booking' user.id %}" method="POST" enctype="multipart/form-data">
+        
+        {% csrf_token %}
+
+
+
+	    <div class="container-fluid" style="background-color: #ffffff; margin-top: 10px; margin-bottom: 10px;">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <table style="margin-top: 20px;font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;;">
+                    
+                        <div class="card-header" style="background-color: #85060c;; color: white; font-family: 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif; " >SenderInformations</div>
+
+                
+                <tr>
+                    <td>Origin</td>
+                
+                
+                    <td>{{data.Origin}}</td>
+                    <td class="error">{{data.Origin.errors}}</td>
+
+                </tr>
+                <td>
+                    <!-- {{data.OrderDate}} -->
+                </td>
+                <td class="error">
+                    <!-- {{data.OrderDate.errors}} -->
+                </td>
+                
+
+                <tr>
+                    <td>Shippername</td>
+              
+                
+                    <td >{{data.Shippername}}</td>
+                    <td class="error">{{data.Shippername.errors}}</td>
+                </tr>
+                 
+                 <td></td>
+                
+
+
+                <tr>
+                    <td>ShipperEmail</td>
+                
+                    <td>{{data.Email}}</td>
+                    <td class="error">{{data.Email.errors}}</td>
+                </tr>
+                <td></td>
+
+                <tr>
+                    <td>ShipperPhone</td>
+                
+                    <td>{{data.ContactNumber}}</td>
+                    <td class="error">{{data.ContactNumber.errors}}</td>
+                </tr>
+
+                <td></td>
+                <tr>
+                    <td>Destination</td>
+                
+                    <td>{{data.Destination}}</td>
+                    <td class="error">{{data.Destination.errors}}</td>
+                </tr>
+                
+                <tr>
+                    <td>ExceptedDeliveryDate</td>
+                    
+                
+                    <td>{{data.DeliveryDate}}</td>
+                    <td class="error">{{data.DeliveryDate.errors}}</td>
+                   
+                  
+                </tr>
+                  
+                  <td></td>
+                <tr>
+                    <td>ShipperAddress</td>
+                
+                    <td style="height: 10px;" >{{data.ShipperAddress}}</td>
+                    <td class="error">{{data.ShipperAddress.errors}}</td>
+                </tr>
+
+                
+                 
+</table>
+
+                </div>
+                
+
+                <div class="col-md-6">
+                        <div class="card-header" style="background-color: #85060c;; color: white; font-family: 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;" >ReciverInformations</div>
+                            <!-- <div class="panel-body -->
+                     <table style="margin-top: 20px;font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;;">
+
+                               <tr>  
+                                    <td>Recivername</td>
+                               
+
+                               
+                    
+                    <td>{{data.Recivername}}</td>
+                    <td class="error">{{data.Recivername.errors}}</td>
+                    </tr>
+                      
+                      <td></td>
+                    <tr>
+                        <td>ReciverEmail</td>
+                    
+
+                
+                    
+                    <td>{{data.ReciverEmail}}</td>
+                    <td class="error">{{data.ReciverEmail.errors}}</td>
+                </tr>
+
+                   <td></td>
+                 <tr>
+                    <td>ReciverContact</td>
+                
+
+               
+                    
+                    <td>{{data.ReciverContact}}</td>
+                    <td class="error">{{data.ReciverContact.errors}}</td>
+                </tr>
+                   <td></td>
+               
+
+                <tr>
+                    <td>ReciverPin</td>
+               
+
+                
+                    
+                    <td>{{data.ReciverPin}}</td>
+                    <td class="error">{{data.ReciverPin.errors}}</td>
+                </tr>
+                       <td></td>
+                <tr>
+                    <td>ReciverCountry</td>
+                
+
+                
+                    
+                    <td>{{data.ReciverCountry}}</td>
+                    <td class="error">{{data.ReciverCountry.errors}}</td>
+                </tr>
+                     <td></td>
+                <tr>
+                    <td>ReciverState</td>
+                
+
+                
+                    
+                    <td>{{data.ReciverState}}</td>
+                    <td class="error">{{data.ReciverState.errors}}</td>
+                </tr>
+                    <td></td>
+                <tr>
+                    <td>ReciverDistrict</td>
+               
+
+                
+                    
+                    <td>{{data.ReciverDistrict}}</td>
+                    <td class="error">{{data.ReciverDistrict.errors}}</td>
+                </tr>
+                   <td></td>
+
+                 <tr>
+                    <td>ReciverAddresss</td>
+                    <td>{{data.ReciverAddresss}}</td>
+                    <td class="error">{{data.ReciverAddresss.errors}}</td>
+                </tr>
+
+
+                </table>
+
+
+                    
+                </div>
+            </div>
+                 
+                 <div class="card">
+                
+                 <div class="card-header" style="background-color: #85060c; font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;  color: white; text-align:center;">ShipmentDetails</div>
+
+                 <div class="row" style="margin-top: 5px;font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;">
+
+                    <div class="col-md-4">
+
+                        <div>ShipmentType:</div>
+
+                        <div>
+                        {{data.ShipmentType}}
+                        {{data.ShipmentType.errors}}
+                    </div>
+
+                        
+
+
+                    </div>
+                    
+
+
+
+                    <div class="col-md-4">
+
+                <div>Type:</div>
+
+                <div>
+                    
+                    {{data.Type}}
+                    {{data.Type.errors}}
+                </div>
+                        
+
+                    </div>
+
+                <div class="col-md-3">
+                    
+                   <div>CargoWeigth(inKg)</div>
+
+                   <div class="error">
+                      
+                <input type="number"  id="num1" name="CargoWeigth" placeholder="200per(kg)"  class="form-control" >
+
+                       <!-- {{data.CargoWeigth}}
+                       {{data.CargoWeigth.errors}} -->
+                   </div>
+
+                </div>
+ </div> 
+
+ <br/>
+ <br/>
+            
+
+            <div class="row" style="font-family:'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif;">
+                <div class="col-md-4">
+
+                     <div>Quantity:</div>
+
+                     <div class="error">
+                     <input type="number"  id="num2" name="CargoQuantity"   class="form-control " >
+
+                     <!-- {{data.CargoQuantity}}
+                     {{data.CargoQuantity.errors}} -->
+                     </div>
+                    
+                    
+
+                </div>
+
+                <div class="col-md-4">
+                    <div>GrandTotal:</div>
+                    
+                    <div class="error">
+                    <input type="number"  id="num3" name="NetRate"   class="form-control " value="0.00" >
+                    
+                    <!-- {{data.NetRate}}
+                    {{data.NetRate.errors}}
+                   -->
+                    
+                    
+                      </div>
+                </div>
+                
+
+            </div>
+
+            <br/>
+            <br/>
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <center>
+                    <input style="width:150px; " class="btn btn-success" type="submit" name="submit" value="Proceed"> 
+
+
+                    
+                    </center>
+
+                </div>
+                
+            </div>
+                
+
+     
+           </div>   
+                
+
+
+               
+           
+
+             <a  href="{% url 'CargoApp:Home' user.id %}">
+                        <img style="height: 60px;" src="{% static 'assets/images/bw3.png' %}">
+                    </a>
+
+ 
+
+        </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(e) {
+    $("input").keyup(function() {
+        $val1=Number($("#num1").val());
+                $val2=Number($("#num2").val());
+
+                $("#num3").val(200*$val1 * $val2);
+    });
+});
+
+    </script>
+    {% endblock %}
+	
+
+</body>
+</html>

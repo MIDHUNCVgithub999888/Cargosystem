@@ -1,0 +1,66 @@
+{% extends 'CargoApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	
+</head>
+{% block content %}
+<body>
+	
+
+	<form action="{% url 'CargoApp:UserNotifications' uid  %}" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		
+
+		{% if Cargotb.id == NotificationsTB.Cargotb_id %}
+
+		
+
+         {% for i  in user %}
+
+
+
+         <div style="margin-left:50px; margin-top: 20px;" class="card">
+         	<div class="card-header" style="background-color:rgb(231, 247, 243)"><center><h3>Notifications</h3>
+         		<a style="margin-left:1200px;" href="{% url 'CargoApp:NotificationsDelete' uid %}">Remove
+         			
+         		</a></center>
+         		
+         	</div>
+         	<div class="card-body" style="font-family:bold;">
+         		
+         	
+
+		<div><h4>Description:</h4>{{ i.Description }}</div>
+		<hr>
+		<div><h4>Status:</h4>{{i.Status}}</div>
+		<hr>
+		<div><h4>Delivery Date:</h4>{{i.Date}}</div>
+		<a class="btn btn-success"  href="{% url 'CargoApp:UserFeedback' uid %}">feedback
+		<!-- <input style="margin-left:1200px;" class="btn btn-success" type="submit" name="" value="Feedback"> -->
+        </a>
+		<hr>
+
+		</div>
+
+		</div>
+		{% endfor %}
+		     
+ 
+	
+		{% endif %}
+
+		<a href="{% url 'CargoApp:Home' uid %}">
+			<img style="height: 60px;" src="{% static 'assets/images/bw3.png' %}">
+		</a>
+
+
+	</form>
+		
+
+</body>
+{% endblock %}
+</html>

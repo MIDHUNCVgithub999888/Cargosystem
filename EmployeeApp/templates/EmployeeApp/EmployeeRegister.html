@@ -1,0 +1,50 @@
+{% extends 'EmployeeApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+
+	{% block content %}
+     
+	
+
+		
+ <div class="card " style="margin-top:20px; background-color: #f4f6f9  ">
+	<h3 style="margin-top: 5px;">Employee_Register</h3>
+
+	<form action="{% url 'EmployeeApp:EmployeeRegister' user.id %}" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		
+ 
+
+
+		{{ data.as_p }}
+
+		
+     
+    
+		
+
+    	
+    	
+    	<td>
+    		<input class="btn btn-success" type="submit" name="submit" value="Submit">
+    	</td>
+   
+
+	</form>
+	
+</div>
+
+
+
+
+</body>
+
+{% endblock %}
+</html>

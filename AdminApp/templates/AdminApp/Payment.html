@@ -1,0 +1,81 @@
+{% extends 'AdminApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+{% block content %}
+<body>
+
+	<div>
+
+		<form action="{% url 'AdminApp:PaymentDetails' %}" method="POST" enctype="mutlipart/form-data">
+			{% csrf_token %}
+
+			
+
+			<table class="table table-bordered table-dark">
+
+				
+
+				
+				<thead style="background-color:black; color:#fff;">
+					<tr>
+						<th>Id</th>
+						<th>Cardholder's Name</th>
+						<th>CVC</th>
+						<th>CardNumber</th>
+						<th>ExpiryMonth</th>
+						<th>ExpiryYear</th>
+						<th>Amount</th>
+
+						
+					</tr>
+				</thead>
+
+					{% for i in user %}
+
+					<tbody>
+						<tr>
+				         <td>{{i.id}}</td>
+				         <td>{{i.CardholdersName}}</td>
+				         <td>{{i.CVV}}</td>
+				         <td>{{i.CardNumber}}</td>
+				         <td>{{i.ExpiryMonth}}</td>
+				         <td>{{i.ExpiryYear}}</td>
+				         <td>{{i.Amount}}</td>
+				         </tr>
+						
+					</tbody>
+				
+				
+
+				
+ {% endfor %}
+
+
+
+
+			</table>
+
+
+
+
+
+			
+
+
+         
+
+		</form>
+		
+
+
+
+
+	</div>
+
+</body>
+{% endblock %}
+</html>

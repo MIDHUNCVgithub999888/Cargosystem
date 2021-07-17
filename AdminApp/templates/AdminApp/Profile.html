@@ -1,0 +1,146 @@
+{% extends 'AdminApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+</head>
+<body>
+	{% block content %}
+
+	<div>
+
+		<form action="{% url 'AdminApp:AdminProfile'  %}" method="POST" enctype="mutlipart/form-data">
+			{% csrf_token %}
+
+            <h3>Profile</h3>
+
+           <div class="row" >
+           	<div class="col-md-2" class="table table-bordered table-dark">
+
+           		<td>Username</td>
+
+
+           	</div>
+           	
+
+           	<div class="col-md-6">
+
+           		<div class="form-control">{{user.username}}</div>
+
+           	
+           	
+           </div>
+           	
+           </div>
+
+
+           <div class="row">
+           	<div class="col-md-2">
+
+           		<td>Emailid</td>
+           		
+
+           	</div>
+           	
+
+           	<div class="col-md-6">
+
+           		<div class="form-control">{{user.email}}</div>
+
+           	
+           	
+           </div>
+           	
+           </div>
+
+
+           <div class="row">
+           	<div class="col-md-2">
+
+           		<td>password</td>
+           		
+
+           	</div>
+           	
+
+           	<div class="col-md-6">
+
+           		<div class="form-control">{{user.password}}</div>
+
+           	
+           	
+           </div>
+           	
+           </div>
+
+
+           <div class="row">
+           	<div class="col-md-2">
+
+           		<td>LastLoggedIn</td>
+           		
+
+           	</div>
+           	
+
+           	<div class="col-md-6">
+
+           		<div class="form-control">{{user.last_login}}</div>
+
+           	
+           	
+           </div>
+           	
+           </div>
+
+
+            <div class="row">
+           	<div class="col-md-2">
+
+           		<td>DateJoined</td>
+           		
+
+           	</div>
+           	
+
+           	<div class="col-md-6">
+
+           		<div class="form-control">{{user.date_joined}}</div>
+
+           	
+           	
+           </div>
+           	
+           </div>
+
+
+           <div class="row">
+           	<div class="col-md-2">
+
+           		<td>Active</td>
+           		
+
+           	</div>
+           	
+
+           	<div class="col-md-6">
+
+           		<div class="form-control">{{user.is_active}}</div>
+
+           	
+           	
+           </div>
+           	
+           </div>
+
+		</form>
+
+		
+
+	</div>
+
+</body>
+{% endblock %}
+</html>

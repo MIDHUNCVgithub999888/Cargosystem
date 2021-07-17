@@ -1,0 +1,54 @@
+{% extends 'EmployeeApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+{% block content %}
+<body>
+	<div class="container-fluid">
+		<div class="col-md-8">
+		<div style="margin-top: 10px; background-color: #d9f8be" class="card" ><h3>Staff Profile</h3>
+			
+		<form action="{% url 'EmployeeApp:EmployeeProfile' user.id  %}" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+
+			<center>
+
+			
+
+
+			{{ form.as_p }}
+
+
+
+			<tr>
+				<td>
+					<input class="btn btn-success" type="button" name="submit" value="Update">
+				</td>
+				<td>
+					<input class="btn btn-danger" type="button" name="submit" value="Delete">
+				</td>
+			</tr>
+
+			
+        
+
+</center>
+
+
+		</form>
+		
+</div>
+</div>
+
+</div>
+
+
+	
+
+</body>
+{% endblock %}
+</html>

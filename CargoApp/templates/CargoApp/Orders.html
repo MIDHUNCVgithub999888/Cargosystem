@@ -1,0 +1,182 @@
+{% extends 'CargoApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+</head>
+<body>
+	{% block content %}
+	<div>
+
+
+
+		<form action="{% url 'CargoApp:UserOrder' uid  %}" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+
+			<!-- <div class="card" style="margin-top:10px; margin-left:20px; margin-right: 20px;">
+				
+					<div class="card-header" style="background-color:#85060c;">
+
+                <center>
+						<h3 style="font-family: 'Lucida Sans Unicode','Lucida Grande','Lucida Sans','DejaVu Sans Condensed',sans-serif; color: #fff;">OrderDetails</h3>
+				</center>
+						
+					</div> -->
+				
+			<!-- <center>
+				<div class="card-body"> -->
+
+					
+
+
+		<div style="background-color:rgb(226, 247, 201); margin-left:20px; margin-top:20px;" class="col-md-12">
+
+			{% if Cargotb.id == BookingTB.Cargotb_id %}
+
+
+
+			
+{% for i in user %}
+
+
+
+			<h4>ORDER NUMBER:</h4>{{i.id}}
+			<br/>
+			<hr style="background-color:rgb(178, 254, 0);">
+			<h4>ORDER DATE:</h4>{{i.OrderDate}}
+			<br/>
+			<hr style="background-color:rgb(178, 254, 0);">
+			<h4>ORIGIN:</h4>{{i.Origin}}
+			<br/>
+			<hr style="background-color:rgb(178, 254, 0);">
+			<h4>DESTINATION:</h4>{{i.Destination}}
+			<br/>
+			<hr style="background-color:rgb(178, 254, 0);">
+			<h4>PRODUCT TYPE:</h4>{{i.Type}}
+			<br/>
+			<hr style="background-color:rgb(178, 254, 0);">
+			<h4>STATUS:</h4>{{i.Status}}
+			<br/>
+			<hr style="background-color:rgb(178, 254, 0);">
+			<h4>AMOUNT:</h4>{{i.NetRate}}
+
+			<a class="btn btn-danger" style="margin-left:900px;" href="{% url 'CargoApp:OrderDelete' uid  %}">Cancel</a>
+
+			<hr style="background-color: black;">
+
+
+
+
+
+			{% endfor %}
+
+
+			{% endif %}
+
+
+	
+       
+        </div>
+
+				
+			<!-- <table class="table table-bordered " > -->
+
+
+			<!-- {% if Cargotb.id == BookingTB.Cargotb_id %} -->
+			
+
+			
+
+            
+			
+			
+			
+            
+            
+            	<!-- <thead style="background-color:darkgray; font-family:Arial Black;">
+            		<tr>
+            			
+            			<td>OrderNumber:</td>
+            			<td>OrderDate</td>
+				         <td>Origin:</td>
+				         <td>Destination:</td>
+				         <td>ProductType:</td>
+				         
+				         <td>Status</td>
+				         <td>Amount:</td>
+				         <td>Action</td>
+
+				        
+
+            		</tr>
+            		
+            	</thead> -->
+            	
+
+
+
+            	<!-- {% for i in user %} -->
+            	
+
+            <!-- 	<tbody>
+
+			<tr>
+				<td> {{ i.id }}</td>
+				<td>{{i.OrderDate }}</td>
+				<td> {{ i.Origin }}</td>
+				<td> {{ i.Destination }}</td>
+				<td> {{ i.Type }}</td>
+				<td>{{i.Status}}</td>
+				<td> {{ i.NetRate }}</td>
+				<td><input class="btn btn-danger" type="submit" name="" value="Cancel"></td>
+				
+
+				
+					
+				
+			</tr>
+			</tbody> -->
+			<!-- {% endfor %}
+
+			{% endif %} -->
+
+
+
+			
+
+<!-- </table>
+</div>
+</center> -->
+
+
+
+</div>
+
+ <a  href="{% url 'CargoApp:Home' uid %}">
+                        <img style="height: 60px;" src="{% static 'assets/images/bw3.png' %}">
+                    </a>
+
+			
+			
+
+		</form>
+
+
+		
+
+
+
+
+
+		
+	</div>
+
+
+
+
+	{% endblock %}
+
+</body>
+</html>

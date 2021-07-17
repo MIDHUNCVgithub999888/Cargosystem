@@ -1,0 +1,67 @@
+{% extends 'AdminApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+{% block content %}
+<body>
+	<form action="{% url 'AdminApp:ViewCustomers' %}" method="POST" enctype="mutlipart/form-data">
+		{% csrf_token %}
+
+		<h4>Customer Details</h4>
+
+		
+
+		<table class="table table-hover table-dark">
+			
+			<thead>
+				<th>Id</th>
+				<th>Name</th>
+				<th>DateOfBirth</th>
+				<th>Gender</th>
+				<th>ContactNumber</th>
+				<th>Country,State,District</th>
+				<th>Address</th>
+				<th>Email</th>
+				<th>Photo</th>
+				<th>Username</th>
+			</thead>
+			{% for i in user %}
+			<tbody>
+				<td>{{i.id}}</td>
+				<td>{{i.Firstname}}</td>
+				<td>{{i.DateOfBirth}}</td>
+				<td>{{i.Gender}}</td>
+				<td>{{i.ContactNumber}}</td>
+				<td>{{i.Country}},{{i.State}},{{i.District}}</td>
+				<td>{{i.Address}}</td>
+				<td>{{i.Email}}</td>
+				<td>
+				<img src="{{i.Photo.url}}" style="height:50px;">
+			</td>
+				<td>{{i.Username}}</td>
+			</tbody>
+
+
+{% endfor %}
+
+
+
+			
+		</table>
+		
+
+
+		
+
+
+	</form>
+
+	{% endblock %}
+		
+
+</body>
+</html>

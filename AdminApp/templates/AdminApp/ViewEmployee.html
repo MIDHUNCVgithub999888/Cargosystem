@@ -1,0 +1,83 @@
+{% extends 'AdminApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+</head>
+<body>
+	
+	{% block content %}
+	<h3>Employee Details</h3>
+	<form action="{% url 'AdminApp:ViewEmployee' %}" method="post" enctype="mutipart/form-data">
+		{% csrf_token %}
+
+          
+
+
+		<table border="3" cellpadding="2px;" style="border-style: double;">
+
+		      <thead>
+
+				<tr>
+					<th>Image</th>
+					<th>Name</th>
+					<th>DateofJoin</th>
+					<th>Age</th>
+					<th>Gender</th>
+					<th>Address</th>
+					<th>City</th>
+					<th>State</th>
+					<th>Country</th>
+					<th>EmailID</th>
+					<th>Phonenumber</th>
+					<th>Loginname</th>
+					<th>Password</th>
+					<th>ConfirmPassword</th>
+					<th>Status</th>
+					<th>Action</th>
+
+					</tr> 
+				</thead>
+
+				<tbody>
+					{% for i in user %}
+				
+				<tr>
+					
+					<td><img style="height: 50px; width: 50px;" src="{{ i.Photo.url }}"></td>
+					<td>{{i.Name}}</td>
+					<td>{{i.DateofJoin}}</td>
+					<td>{{i.Age}}</td>
+					<td>{{i.Gender}}</td>
+					<td>{{i.Address}}</td>
+					<td>{{i.City}}</td>
+					<td>{{i.State}}</td>
+					<td>{{i.Country}}</td>
+					<td>{{i.EmailID}}</td>
+					<td>{{i.Phonenumber}}</td>
+					<td>{{i.Loginname}}</td>
+					<td>{{i.Password}}</td>
+					<td>{{i.ConfirmPassword}}</td>
+					<td>{{i.Status}}</td>
+					<td>
+						<input style="text-align: center; " class="btn btn-primary" type="button" name="submit" value="&nbsp;&nbsp;&nbsp;&nbsp;Edit">
+						<input class="btn btn-danger" type="button" name="submit" value="Delete">
+					</td>
+
+				</tr> 
+
+				{% endfor %}
+				</tbody>
+				
+				
+
+
+			</table>
+
+	</form>
+	
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,44 @@
+{% extends 'AdminApp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+{% block content %}
+<body>
+
+	<form action="{% url 'AdminApp:Feedback' %}" method="POST" enctype="mutlipart/form-data">
+		{% csrf_token %}
+
+<h3>Feedbacks</h3>
+		
+
+		{% for i  in user %}
+
+
+		<table class="table table-bordered">
+			<thead class="thead-dark">
+				<th>UserId:</th>
+				<th>Comments:</th>
+				<th>Date:</th>
+			</thead>
+			<tbody>
+			<td>{{i.Cargotb_id}}</td>
+			<td>{{i.Comments}}</td>
+			<td>{{i.Date}}</td>
+			</tbody>
+
+		</table>
+
+		{% endfor %}
+
+		
+	</form>
+	
+
+</body>
+
+{% endblock %}
+</html>
