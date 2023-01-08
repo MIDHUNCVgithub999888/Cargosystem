@@ -73,7 +73,7 @@ class FeedbackTb(models.Model):
 	Cargotb=models.ForeignKey(Cargotb,on_delete=models.CASCADE,null=True)
 	Booking=models.ForeignKey(BookingTB,on_delete=models.CASCADE,null=True)
 	Comments=models.CharField(max_length=100,default='')
-	Date=Date=models.DateTimeField(blank=True,auto_now_add=True,null=True)
+	Date=models.DateTimeField(blank=True,auto_now_add=True,null=True)
 
 
 class OrderTb(models.Model):
