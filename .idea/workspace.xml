@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d72ce89c-a61d-472a-ae13-6a0a693786bd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CargoApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/CargoApp/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CargoApp/templates/CargoApp/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/CargoApp/templates/CargoApp/Login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CargoApp/templates/CargoApp/Orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/CargoApp/templates/CargoApp/Orders.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CargoApp/templates/CargoApp/b.html" beforeDir="false" afterPath="$PROJECT_DIR$/CargoApp/templates/CargoApp/b.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CargoManagement/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CargoManagement/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="d72ce89c-a61d-472a-ae13-6a0a693786bd" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +21,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "last_opened_file_path": "F:/ConstructionManagement"
+    "last_opened_file_path": "E:/Ecommerce"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

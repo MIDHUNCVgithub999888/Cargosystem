@@ -1,6 +1,5 @@
 from django.urls import path
 from CargoApp import views
-from django.conf.urls import url
 from django.contrib.auth.views import LoginView
 app_name='CargoApp'
 
